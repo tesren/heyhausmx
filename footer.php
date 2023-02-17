@@ -44,6 +44,10 @@
 
 
 <script src="<?php echo get_template_directory_uri()?>/assets/js/bootstrap.bundle.min.js" defer></script>
+<script src="<?php echo get_template_directory_uri()?>/assets/js/choices.min.js" defer></script>
+<script src="<?php echo get_template_directory_uri()?>/assets/js/splide.min.js" defer></script>
+<script src="<?php echo get_template_directory_uri()?>/assets/js/heyhaus.js" defer></script>
+
 <?php wp_footer(); ?>
 </body>
 </html>             
