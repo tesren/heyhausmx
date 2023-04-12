@@ -35,7 +35,7 @@ function listing_register_post_type(){
             'title',
             'editor',
             //'excerpt',
-            'thumbnail',
+            //'thumbnail',
             'revisions',
         ),
         //'taxonomies' => array('category', 'post_tag'),
@@ -195,32 +195,6 @@ function listing_register_meta_boxes( $meta_boxes ) {
                 'size' => 30,
             ],
             [
-                'name'            => 'Amueblado',
-                'desc'            => 'Seleccione si la propiedad tiene muebles o no',
-                'id'              => 'furniture',
-                'type'            => 'select',
-                // Array of 'value' => 'Label' pairs
-                'options'         => array(
-                    'Si'       => 'Si',
-                    'No'       => 'No',
-                    'Semi-amueblado' => 'Semi-amueblado'
-                ),
-                // Allow to select multiple value?
-                'multiple'        => false,
-                // Placeholder text
-                'placeholder'     => 'Eliga una opción',
-                // Display "Select All / None" button?
-                'select_all_none' => false,
-                'size' => 30,
-            ],
-            [
-                'name'  => 'Niveles',
-                'desc'  => 'Especifique cuantos pisos tiene la propiedad',
-                'id'    => 'levels',
-                'type'  => 'number',
-                'size' => 30,
-            ],
-            [
                 'name'  => 'Construcción',
                 'desc'  => 'Solo números (m2)',
                 'id'    => 'construction',
@@ -232,13 +206,6 @@ function listing_register_meta_boxes( $meta_boxes ) {
                 'desc'  => 'Solo números (m2)',
                 'id'    => 'lot_area',
                 'type'  => 'number',
-                'size' => 30,
-            ],
-            [
-                'name'  => 'Estacionamiento',
-                'desc'  => 'Especificar tipo de estacionamiento',
-                'id'    => 'parking_stalls',
-                'type'  => 'text',
                 'size' => 30,
             ],
             [

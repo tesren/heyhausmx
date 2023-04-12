@@ -23,6 +23,18 @@ $featured_listings = get_posts(array(
     ),
 ));
 
+$featured_regions = get_posts(array(
+    'post_type' => 'region',
+    'numberposts' => -1,
+    'meta_query'=> array(
+        array(
+            'key' => 'featured_region',
+            'compare' => '=',
+            'value' => 1,
+        )
+    ),
+));
+
 get_header();?>
 
 <div class="position-relative">
@@ -75,39 +87,95 @@ get_header();?>
 <!-- Propiedades destacadas -->
 <?php if($featured_listings): ?>
     <div class="position-relative pt-5 mt-5 mb-6">
-        <h2 class="text-center gold-text fs-1 fw-light">Propiedades Destacadas</h2>
-        <img width="250px" src="<?php echo get_template_directory_uri();?>/assets/icons/half-circle-gold.webp" alt="" class="position-absolute top-0 start-0">
+        <h2 class="text-center gold-text fs-1 fw-light mb-5">Propiedades Destacadas</h2>
+        <img width="250px" src="<?php echo get_template_directory_uri();?>/assets/icons/half-circle-gold.webp" alt="" class="position-absolute top-0 start-0 z-1">
 
 
-        <section class="splide" aria-label="Propiedades destacadas" id="featured-listings">
+        <section class="splide position-relative z-2" aria-label="Propiedades destacadas" id="featured-listings">
             <div class="splide__track">
                 <ul class="splide__list">
 
                     <?php foreach($featured_listings as $listing): ?>
                         <li class="splide__slide">
 
-                            <?php $images = rwmb_meta('listing_gallery', ['size'=>'medium-large', 'limit'=>1], $listing->ID); ?>
-                            <div class="position-relative">
-                                <img src="<?php echo $images[0]['url']; ?>" alt="<?php echo get_the_title( $listing->ID ); ?>" class="w-100 rounded-4">
-                                <div class="fondo-oscuro rounded-4"></div>
-                                <div class="position-absolute start-0 bottom-0 w-100 text-white z-3 px-4 py-3">
-                                    <h2 class="fs-1 mb-0 lh-1"><?php echo get_the_title( $listing->ID ); ?></h2>
-                                    <div class="fs-5"><?php get_list_terms($listing->ID, 'regiones'); ?></div>
+                            <a href="<?php echo get_the_permalink($listing->ID); ?>" class="text-decoration-none">
+                                <?php $images = rwmb_meta('listing_gallery', ['size'=>'medium-large', 'limit'=>1], $listing->ID); ?>
+                                <div class="position-relative">
+                                    <img src="<?php echo $images[0]['url']; ?>" alt="<?php echo get_the_title( $listing->ID ); ?>" class="w-100 rounded-4">
+                                    <div class="fondo-oscuro rounded-4"></div>
+                                    <div class="position-absolute start-0 bottom-0 w-100 text-white z-3 px-4 py-3">
+                                        <h2 class="fs-1 mb-0 lh-1"><?php echo get_the_title( $listing->ID ); ?></h2>
+                                        <div class="fs-5"><?php get_list_terms($listing->ID, 'regiones'); ?></div>
+                                    </div>
+
+                                    <div class="badge bg-blue position-absolute top-0 end-0 me-3 mt-3 z-3">
+                                        <?php get_property_type($listing->ID, 'property_type') ?>
+                                    </div>
+
                                 </div>
-                            </div>
 
-                            <div class="d-flex justify-content-between">
-                                <div></div>
+                                <div class="d-flex justify-content-between px-4 py-2">
+                                    <div class="fs-5 fw-bold gold-text">
+                                        <img width="24px" src="<?php echo get_template_directory_uri();?>/assets/icons/bed-blue.svg" alt="">
+                                        <?php echo $listing->bedrooms; ?>
+                                        <img width="24px" src="<?php echo get_template_directory_uri();?>/assets/icons/bathtub-blue.svg" alt="" class="ms-2">
+                                        <?php echo $listing->bathrooms; ?>
+                                    </div>
 
-                                <div class="fs-5">$<?php echo number_format($listing->price);?> <?php echo $listing->currency; ?></div>
-                            </div>
-
+                                    <div class="fs-4 blue-text">
+                                        $<?php echo number_format($listing->price);?> 
+                                        <span class="fs-6"><?php echo $listing->currency; ?></span>
+                                    </div>
+                                    
+                                </div>
+                            </a>
                         </li>
                     <?php endforeach; ?>
                     
                 </ul>
             </div>
         </section>
+
+    </div>
+<?php endif; ?>
+
+<!-- Propiedades destacadas -->
+<?php if($featured_regions): ?>
+    <div class="position-relative mb-6">
+        <h2 class="text-center gold-text fs-1 fw-light mb-5">Regiones Populares</h2>
+        <img width="250px" src="<?php echo get_template_directory_uri();?>/assets/icons/half-circle-gold.webp" alt="" class="position-absolute top-50 end-0 z-1" style="transform: rotate(180deg);">
+
+        <?php foreach($featured_regions as $region): ?>
+
+            <div class="row justify-content-center mb-5 position-relative z-2">
+
+                <div class="col-12 col-lg-4">
+                    <?php $url = get_the_post_thumbnail_url( $region->ID, 'medium_large' );?>
+                    <img src="<?= $url ?>" alt="<?= get_the_title($region->ID); ?>" class="w-100 rounded-3" loading="lazy">
+                </div>
+
+                <div class="col-12 col-lg-5">
+                    <h3 class="fs-1 blue-text"><?= get_the_title($region->ID); ?></h3>
+                    <p class="fs-5 mb-5"><?= get_the_excerpt( $region->ID ); ?></p>
+
+                    <div class="row">
+                        <div class="col-12 col-lg-6 px-0 fs-4">
+                            <div class="blue-text">Precios</div>
+                            <?= $region->prices ?>
+                        </div>
+
+                        <div class="col-12 col-lg-6 px-0 align-self-center">
+                            <a href="<?= get_the_permalink( $region->ID ); ?>" class="btn btn-yellow">
+                                Conocer Más
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        <?php endforeach;?>
 
     </div>
 <?php endif; ?>

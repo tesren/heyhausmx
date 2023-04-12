@@ -53,7 +53,7 @@ if(featuredListings){
   featuredListings= new Splide( '#featured-listings', {
     perPage: 3,
     loop: true,
-    padding: '10px',
+    padding: '15px',
     pagination: false,
     breakpoints: {
       640: {
@@ -66,4 +66,21 @@ if(featuredListings){
   } );
   
   featuredListings.mount();
+}
+
+let regionGallery = document.getElementById('region-gallery');
+
+if(regionGallery){
+  regionGallery= new Splide( '#region-gallery', {
+    perPage: 2,
+    loop: true,
+    pagination: true,
+    breakpoints: {
+      480: {
+        perPage: 1,
+      },
+    },
+  } );
+  
+  regionGallery.mount();
 }

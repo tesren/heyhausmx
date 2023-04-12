@@ -7,6 +7,12 @@ body{
     font-family: 'Lato', sans-serif !important;
 }
 
+hr{
+    color: var(--gold);
+    opacity: 1;
+    border-bottom: var(--gold) 2px solid;
+}
+
 .row{
     margin-left: auto !important;
     margin-right: auto !important;
@@ -19,6 +25,14 @@ body{
 
 .gold-text{
     color: var(--gold) !important;
+}
+
+.shadow-4 {
+    box-shadow: 0 2px 4px -1px #0003,0 4px 5px #00000024,0 1px 10px #0000001f;
+}
+
+[data-fancybox]:hover{
+    cursor: pointer;
 }
 
 .fs-0{
@@ -38,7 +52,7 @@ body{
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.4);
+    background-color: rgba(0, 0, 0, 0.3);
     z-index: 1;
 }
 
@@ -52,6 +66,16 @@ body{
     transition: 0.2s;
 }
 
+.btn-yellow{
+    background-color: var(--gold);
+    color: #fff !important;
+}
+
+.btn-yellow:hover, .btn-yellow:focus{
+    background-color: #8b7025;
+    transition: 0.2s;
+}
+
 .bg-blue{
     background-color: var(--blue);
     color: #fff;
@@ -62,8 +86,8 @@ body{
     color: rgba(0, 62, 111, 1);
 }
 
-.nav-link {
-    color: rgba(0, 62, 111, 0.9);
+.nav-link, .dropdown-item {
+    color: rgba(0, 62, 111, 0.9) !important;
 }
 
 label{
@@ -80,6 +104,10 @@ label{
 
 .choices__list--dropdown .choices__item, .choices__list[aria-expanded] .choices__item {
     color: #111111;
+}
+
+textarea{
+    height: 150px !important;
 }
 
 @media (max-width: 992px) {

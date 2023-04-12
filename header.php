@@ -23,7 +23,7 @@
 <nav class="navbar navbar-expand-xl bg-white blue-text sticky-top py-1" style="border-bottom: 4px #003E6F solid">
   <div class="container-fluid">
 
-    <a class="navbar-brand" href="#">
+    <a class="navbar-brand" href="<?= get_home_url();?>">
         <img width="250px" src="<?php echo get_template_directory_uri();?>/assets/icons/heyhaus-logo.webp" alt="Logo de HeyHaus">
     </a>
 
@@ -57,16 +57,16 @@
                     <li>
                         <hr class="dropdown-divider">
                     </li>
-                    <li><a class="dropdown-item" href="#">Ver Todo</a></li>
+                    <li><a class="dropdown-item" href="<?= get_post_type_archive_link( 'propiedad-en-venta' ); ?>">Ver Todo</a></li>
                 </ul>
             </li>
 
             <li class="nav-item me-4">
-                <a class="nav-link" href="#">Regiones</a>
+                <a class="nav-link" href="<?= get_post_type_archive_link( 'region' ); ?>">Regiones</a>
             </li>
 
             <li class="nav-item me-4">
-                <a class="nav-link" href="#">Blog</a>
+                <a class="nav-link" href="<?= get_the_permalink( pll_get_post(30) ) ?>">Blog</a>
             </li>
 
             <li class="nav-item me-4 align-self-center">

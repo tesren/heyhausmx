@@ -53,6 +53,7 @@ if ( ! function_exists( 'heyhaus_theme_styles' ) ) :
     	wp_enqueue_style( 'bootstrap-css', get_template_directory_uri() .'/assets/css/bootstrap.min.css' );
     	wp_enqueue_style( 'choices-css', get_template_directory_uri() .'/assets/css/choices.min.css' );
     	wp_enqueue_style( 'splide-css', get_template_directory_uri() .'/assets/css/splide.min.css' );
+    	wp_enqueue_style( 'fancybox-css', get_template_directory_uri() .'/assets/css/fancybox.min.css' );
     	wp_enqueue_style( 'heyhaus-css', get_template_directory_uri() .'/assets/css/heyhaus_style.css' );
 
 	}
@@ -66,6 +67,7 @@ add_action( 'wp_enqueue_scripts', 'heyhaus_theme_styles' );
 */
 
 require get_template_directory().'/inc/listing-cpt.php';
+require get_template_directory().'/inc/region-cpt.php';
 require get_template_directory().'/inc/messages-cpt.php';
 
 
