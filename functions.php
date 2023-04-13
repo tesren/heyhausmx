@@ -9,8 +9,6 @@ if ( ! function_exists( 'heyhaus_theme_support' ) ) :
 	/**
 	 * Sets up theme defaults and registers support for various WordPress features.
 	 *
-	 * @since Twenty Twenty-Two 1.0
-	 *
 	 * @return void
 	 */
 	function heyhaus_theme_support() {
@@ -26,6 +24,21 @@ if ( ! function_exists( 'heyhaus_theme_support' ) ) :
 	}
 
 endif;
+
+//ENABLE CUSTOM MENU
+
+function custom_nav_menus()
+{    
+    $locations = array(
+        'primary' => __( 'Menu principal' ),
+    );
+    
+    register_nav_menus( $locations );
+}
+
+add_action('init', 'custom_nav_menus');
+
+
 
 add_action( 'after_setup_theme', 'heyhaus_theme_support' );
 
@@ -51,7 +64,7 @@ if ( ! function_exists( 'heyhaus_theme_styles' ) ) :
 		// Enqueue theme stylesheet.
 		wp_enqueue_style( 'twentytwentytwo-style' );
     	wp_enqueue_style( 'bootstrap-css', get_template_directory_uri() .'/assets/css/bootstrap.min.css' );
-    	wp_enqueue_style( 'choices-css', get_template_directory_uri() .'/assets/css/choices.min.css' );
+    	//wp_enqueue_style( 'choices-css', get_template_directory_uri() .'/assets/css/choices.min.css' );
     	wp_enqueue_style( 'splide-css', get_template_directory_uri() .'/assets/css/splide.min.css' );
     	wp_enqueue_style( 'fancybox-css', get_template_directory_uri() .'/assets/css/fancybox.min.css' );
     	wp_enqueue_style( 'heyhaus-css', get_template_directory_uri() .'/assets/css/heyhaus_style.css' );
@@ -69,6 +82,15 @@ add_action( 'wp_enqueue_scripts', 'heyhaus_theme_styles' );
 require get_template_directory().'/inc/listing-cpt.php';
 require get_template_directory().'/inc/region-cpt.php';
 require get_template_directory().'/inc/messages-cpt.php';
+
+
+/**
+ * Register Custom Navigation Walker
+ */
+function register_navwalker(){
+	require_once get_template_directory() . '/classes/class-wp-bootstrap-navwalker.php';
+}
+add_action( 'after_setup_theme', 'register_navwalker' );
 
 
 /**

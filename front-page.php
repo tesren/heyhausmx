@@ -23,6 +23,11 @@ $featured_listings = get_posts(array(
     ),
 ));
 
+$last_posts = get_posts(array(
+    'post_type' => 'post',
+    'numberposts' => 3,
+));
+
 $featured_regions = get_posts(array(
     'post_type' => 'region',
     'numberposts' => -1,
@@ -48,8 +53,11 @@ get_header();?>
             <!-- Formulario de busqueda -->
             <div class="bg-white px-3 py-4 rounded-4">
                 <form role="search" method="get" id="searchform" action="<?php echo home_url( '/' ); ?>" class="row">
+                    <input type="hidden" placeholder="Search" value="<?php the_search_query() ?>" name="s" title="Search"/>
 
-                    <div class="col-12 col-lg-4 mb-3 mb-lg-0" style="border-right: 1px solid #003E6F;">
+                    <input type="hidden" value="propiedad-en-venta" name="post_type"/>
+
+                    <div class="col-12 col-lg-3 mb-3 mb-lg-0 border-end border-dark">
                         <label for="type_s">Tipo de Propiedad</label>
                         <select class="form-select w-100 rounded-1 py-2 bg-light" aria-label="Seleccione un tipo" id="type_s" name="type_s">
                             <option selected value=""><?php pll_e('Todos los tipos');?></option>
@@ -59,9 +67,11 @@ get_header();?>
                         </select>
                     </div>
 
-                    <div class="col-12 col-lg-8">
+                    <div class="col-12 col-lg-7 border-end border-dark">
                         <label for="regiones_s"><?php pll_e('Ubicación'); ?></label>
-                        <select class="form-select w-100 mb-3" id="regiones_s" name="regiones_s" multiple>
+                        <select class="form-select w-100 py-2 mb-3 bg-light" id="regiones_s" name="regiones_s">
+                            <option selected value=""><?php pll_e('Ubicación');?></option>
+
                             <?php foreach($regiones as &$category):
                                 $childrenTerms =  get_term_children( $category->term_id, 'regiones' );
 
@@ -72,6 +82,10 @@ get_header();?>
 
                             <?php endforeach; ?>
                         </select>
+                    </div>
+
+                    <div class="col-12 col-lg-2 align-self-center">
+                        <button type="submit" class="btn btn-blue w-100 py-2">Buscar</button>
                     </div>
 
                 </form>
@@ -139,7 +153,7 @@ get_header();?>
     </div>
 <?php endif; ?>
 
-<!-- Propiedades destacadas -->
+<!-- Regiones destacadas -->
 <?php if($featured_regions): ?>
     <div class="position-relative mb-6">
         <h2 class="text-center gold-text fs-1 fw-light mb-5">Regiones Populares</h2>
@@ -155,17 +169,17 @@ get_header();?>
                 </div>
 
                 <div class="col-12 col-lg-5">
-                    <h3 class="fs-1 blue-text"><?= get_the_title($region->ID); ?></h3>
+                    <h3 class="fs-1 blue-text mt-2 mt-lg-0"><?= get_the_title($region->ID); ?></h3>
                     <p class="fs-5 mb-5"><?= get_the_excerpt( $region->ID ); ?></p>
 
                     <div class="row">
-                        <div class="col-12 col-lg-6 px-0 fs-4">
+                        <div class="col-12 col-lg-6 px-0 fs-4 mb-4 mb-lg-0">
                             <div class="blue-text">Precios</div>
                             <?= $region->prices ?>
                         </div>
 
                         <div class="col-12 col-lg-6 px-0 align-self-center">
-                            <a href="<?= get_the_permalink( $region->ID ); ?>" class="btn btn-yellow">
+                            <a href="<?= get_the_permalink( $region->ID ); ?>" class="btn btn-yellow w-100">
                                 Conocer Más
                             </a>
                         </div>
@@ -178,6 +192,42 @@ get_header();?>
         <?php endforeach;?>
 
     </div>
+<?php endif; ?>
+
+<!-- Ultimas entradas -->
+<?php if ( $last_posts ): ?>
+
+    <h3 class="text-center gold-text fs-1 fw-light mb-5">Artículos Recientes</h3>
+
+    <div class="col-12 col-lg-10 mx-auto mb-5">
+        <div class="row">
+            <?php foreach( $last_posts as $blog ):?>
+
+                <div class="col-12 col-lg-4 p-2 mb-4">
+
+                    <article class="card rounded-0 w-100 shadow-4 blog-card">
+                        <a href="<?= get_the_permalink($blog->ID); ?>" class="text-decoration-none">
+                            <img src="<?= get_the_post_thumbnail_url( $blog->ID, 'medium_large')?>" alt="<?= get_the_title($blog->ID); ?>" class="w-100" style="height:270px; object-fit:cover;">
+                            
+                            <div class="bg-light card-body">
+                                <h3 class="fw-bold blue-text"><?= get_the_title($blog->ID); ?></h3>
+                                <p class="text-dark fw-light"><?= get_the_excerpt($blog->ID); ?></p>
+
+                                <div class="fw-light text-dark"><?= get_the_date('d-m-Y', $blog->ID); ?></div>
+                            </div>
+                        </a>
+                    </article>
+
+                </div>
+
+            <?php endforeach; ?>
+        </div>
+    </div>
+
+    <div class="text-center mb-6">
+        <a href="<?= get_the_permalink(get_page_by_title( 'Blog' )); ?>" class="btn btn-yellow">Ver Todos</a>
+    </div>
+
 <?php endif; ?>
 
 <?php get_footer(); ?>

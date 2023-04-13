@@ -11,7 +11,7 @@
 
                 <?php while( have_posts() ): the_post();?>
 
-                    <div class="col-11 col-lg-10 col-xl-9 mb-4 mb-lg-5 shadow-4 px-0 rounded-2">
+                    <div class="col-11 col-lg-10 col-xl-9 mb-4 mb-lg-5 shadow-4 px-0 rounded-2 blog-card">
 
                         <a href="<?= get_the_permalink(); ?>" class="text-decoration-none">
                             <div class="card w-100 text-dark fw-normal position-relative">

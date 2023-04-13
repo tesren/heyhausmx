@@ -7,7 +7,7 @@
             <?php while( have_posts() ): the_post();?>
 
                 <div class="position-relative">
-                    <img src="<?php echo get_the_post_thumbnail_url( get_the_ID(), 'large' );?>" alt="<?php the_title();?>" class="w-100" style="height:88vh; object-fit:cover;">
+                    <img src="<?php echo get_the_post_thumbnail_url( get_the_ID(), 'large' );?>" alt="<?php the_title();?>" class="w-100" style="height:50vh; object-fit:cover;">
 
                     <div class="fondo-oscuro"></div>
 
@@ -19,7 +19,10 @@
 
                 </div>
                     
-                <div class="row justify-content-center my-6">
+                <div class="row justify-content-center my-6 position-relative">
+
+                    <img width="250px" src="<?php echo get_template_directory_uri();?>/assets/icons/half-circle-gold.webp" alt="" class="position-absolute start-0 z-1 px-0" style="width:250px; top:10%;">
+
                     <div class="col-11 col-lg-10 col-xl-9">
                         <h2 class="fs-1 blue-text mb-4">La región de <?= get_the_title();?></h2>
                         <?php the_content(); ?>

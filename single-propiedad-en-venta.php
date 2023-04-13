@@ -59,11 +59,11 @@
                         <h2 class="fw-light gold-text text-center mb-5"><?php get_property_type(get_the_ID(), 'property_type'); ?></h2>
 
                         <div class="row justify-content-center">
-                            <div class="col-6 col-lg-2 text-center">
+                            <div class="col-6 col-lg-2 text-center mb-4 mb-lg-0">
                                 <div class="fs-1 blue-text fw-bold"><?= rwmb_meta('bedrooms'); ?></div>
                                 <div class="fs-5 fw-light text-uppercase">Recámaras</div>
                             </div>
-                            <div class="col-6 col-lg-2 text-center">
+                            <div class="col-6 col-lg-2 text-center mb-4 mb-lg-0">
                                 <div class="fs-1 blue-text fw-bold"><?= rwmb_meta('bathrooms'); ?></div>
                                 <div class="fs-5 fw-light text-uppercase">Baños</div>
                             </div>

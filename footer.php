@@ -3,11 +3,11 @@
 
     <div class="row justify-content-evenly px-2 mb-5">
 
-        <div class="col-11 col-lg-2">
+        <div class="col-11 col-lg-2 mb-5 mb-lg-0">
             <img src="<?php echo get_template_directory_uri()?>/assets/icons/heyhaus-logo-footer.webp" alt="Logo de HeyHaus" class="w-100">
         </div>
 
-        <div class="col-12 col-lg-4">
+        <div class="col-12 col-lg-4 mb-5 mb-lg-0">
             <h6 class="fs-3">Contacto</h6>
             <a href="mailto:" class="link-light text-decoration-none fs-5 d-block mb-3">
                 <img width="24px" src="<?php echo get_template_directory_uri()?>/assets/icons/mail-white.svg" alt="Email">
@@ -19,8 +19,8 @@
             </a>
         </div>
 
-        <div class="col-12 col-lg-2">
-            <h6 class="fs-3 text-center text-lg-start">Síguenos</h6>
+        <div class="col-12 col-lg-2 text-center text-lg-start">
+            <h6 class="fs-3">Síguenos</h6>
             <a href="#" target="_blank" rel="noopener noreferrer" class="link-light text-decoration-none me-3">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="36px" fill="#fff"><path d="M504 256C504 119 393 8 256 8S8 119 8 256c0 123.78 90.69 226.38 209.25 245V327.69h-63V256h63v-54.64c0-62.15 37-96.48 93.67-96.48 27.14 0 55.52 4.84 55.52 4.84v61h-31.28c-30.8 0-40.41 19.12-40.41 38.73V256h68.78l-11 71.69h-57.78V501C413.31 482.38 504 379.78 504 256z"/></svg>            
             </a>
@@ -44,7 +44,6 @@
 
 
 <script src="<?php echo get_template_directory_uri()?>/assets/js/bootstrap.bundle.min.js" defer></script>
-<script src="<?php echo get_template_directory_uri()?>/assets/js/choices.min.js" defer></script>
 <script src="<?php echo get_template_directory_uri()?>/assets/js/splide.min.js" defer></script>
 <script src="<?php echo get_template_directory_uri()?>/assets/js/heyhaus.js" defer></script>
 
