@@ -35,3 +35,11 @@ if(regionGallery){
   
   regionGallery.mount();
 }
+
+var fourthListItem = document.querySelector('#menu-item-49 a');
+fourthListItem.classList.remove('link-dark');
+fourthListItem.classList.remove('nav-link');
+fourthListItem.classList.add('btn');
+fourthListItem.classList.add('btn-blue');
+fourthListItem.parentElement.classList.add('align-self-center');
+

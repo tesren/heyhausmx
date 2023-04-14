@@ -1,46 +1,47 @@
 <?php 
-$regiones = get_terms( array(
-    'taxonomy'          => 'regiones',
-    'parent'            => 0,
-    'hide_empty'        => false,
-) );
+    $regiones = get_terms( array(
+        'taxonomy'          => 'regiones',
+        'parent'            => 0,
+        'hide_empty'        => false,
+    ) );
 
-$propertiesType = get_terms( array(
-    'taxonomy'          => 'property_type',
-    'parent'            => 0,
-    'hide_empty'        => false,
-) );
+    $propertiesType = get_terms( array(
+        'taxonomy'          => 'property_type',
+        'parent'            => 0,
+        'hide_empty'        => false,
+    ) );
 
-$featured_listings = get_posts(array(
-    'post_type' => 'propiedad-en-venta',
-    'numberposts' => -1,
-    'meta_query'=> array(
-        array(
-            'key' => 'featured_listing',
-            'compare' => '=',
-            'value' => 1,
-        )
-    ),
-));
+    $featured_listings = get_posts(array(
+        'post_type' => 'propiedad-en-venta',
+        'numberposts' => -1,
+        'meta_query'=> array(
+            array(
+                'key' => 'featured_listing',
+                'compare' => '=',
+                'value' => 1,
+            )
+        ),
+    ));
 
-$last_posts = get_posts(array(
-    'post_type' => 'post',
-    'numberposts' => 3,
-));
+    $last_posts = get_posts(array(
+        'post_type' => 'post',
+        'numberposts' => 3,
+    ));
 
-$featured_regions = get_posts(array(
-    'post_type' => 'region',
-    'numberposts' => -1,
-    'meta_query'=> array(
-        array(
-            'key' => 'featured_region',
-            'compare' => '=',
-            'value' => 1,
-        )
-    ),
-));
+    $featured_regions = get_posts(array(
+        'post_type' => 'region',
+        'numberposts' => -1,
+        'meta_query'=> array(
+            array(
+                'key' => 'featured_region',
+                'compare' => '=',
+                'value' => 1,
+            )
+        ),
+    ));
 
-get_header();?>
+    get_header();
+?>
 
 <div class="position-relative">
     <img src="<?php echo get_template_directory_uri();?>/assets/images/muelle-puerto-vallarta.webp" alt="Muelle de Puerto Vallarta" class="w-100" style="height:88vh; object-fit:cover;" >
@@ -48,51 +49,30 @@ get_header();?>
 
     <div class="row position-absolute top-0 start-0 h-100 z-3 justify-content-center">
         <div class="col-12 col-lg-8 col-xl-7 align-self-center p-4">
-            <h1 class="text-center text-white text-uppercase fs-0">Encuentra la casa de tus sueños</h1>
+            <h1 class="text-center text-white text-uppercase fs-0 mb-4"><?php pll_e('Encuentra la casa de tus sueños');?></h1>
             
             <!-- Formulario de busqueda -->
-            <div class="bg-white px-3 py-4 rounded-4">
-                <form role="search" method="get" id="searchform" action="<?php echo home_url( '/' ); ?>" class="row">
-                    <input type="hidden" placeholder="Search" value="<?php the_search_query() ?>" name="s" title="Search"/>
-
-                    <input type="hidden" value="propiedad-en-venta" name="post_type"/>
-
-                    <div class="col-12 col-lg-3 mb-3 mb-lg-0 border-end border-dark">
-                        <label for="type_s">Tipo de Propiedad</label>
-                        <select class="form-select w-100 rounded-1 py-2 bg-light" aria-label="Seleccione un tipo" id="type_s" name="type_s">
-                            <option selected value=""><?php pll_e('Todos los tipos');?></option>
-                            <?php foreach($propertiesType as &$type):?>
-                                <option value="<?php echo $type->slug; ?>"><?php echo $type->name; ?></option>
-                            <?php endforeach; ?>
-                        </select>
-                    </div>
-
-                    <div class="col-12 col-lg-7 border-end border-dark">
-                        <label for="regiones_s"><?php pll_e('Ubicación'); ?></label>
-                        <select class="form-select w-100 py-2 mb-3 bg-light" id="regiones_s" name="regiones_s">
-                            <option selected value=""><?php pll_e('Ubicación');?></option>
-
-                            <?php foreach($regiones as &$category):
-                                $childrenTerms =  get_term_children( $category->term_id, 'regiones' );
-
-                                    foreach($childrenTerms as $child) :     
-                                        $term = get_term_by( 'id', $child, 'regiones');?>
-                                        <option value="<?php echo $term->slug; ?>"><?php echo $term->name; ?></option>
-                                    <?php endforeach; ?>
-
-                            <?php endforeach; ?>
-                        </select>
-                    </div>
-
-                    <div class="col-12 col-lg-2 align-self-center">
-                        <button type="submit" class="btn btn-blue w-100 py-2">Buscar</button>
-                    </div>
-
-                </form>
-            </div>
+            <?php echo get_search_form();?>
             
-
         </div>
+    </div>
+
+</div>
+
+
+<!-- Sobre Nosotros -->
+<div class="row position-relative justify-content-evenly my-6">
+    <div class="col-12 col-lg-5">
+        <div class="fw-light gold-text"><?php pll_e('Nosotros');?></div>
+        <h2 class="fw-bold blue-text fs-1 mb-5"><?php pll_e('¿Quienes somos?');?></h2>
+        <p class="fs-5">
+            <?php pll_e('HeyHaus es una plataforma de venta de propiedades en Puerto Vallarta y Bahía de Banderas, México. Ofrecemos una amplia selección de propiedades exclusivas, que van desde apartamentos y casas de playa hasta terrenos y lotes residenciales. Nuestro equipo de expertos inmobiliarios altamente capacitados ofrece asesoramiento personalizado a compradores y vendedores interesados en el mercado inmobiliario de la zona.');?> <br>
+            <?php pll_e('En HeyHaus, nos enfocamos en la calidad y la transparencia para brindar la mejor experiencia de compra y venta de propiedades. Encuentra tu hogar ideal hoy con HeyHaus.');?>
+        </p>                     
+    </div>
+
+    <div class="col-12 col-lg-4">
+        <img src="<?php echo get_template_directory_uri();?>/assets/images/about-pic.webp" alt="Heyhaus sobre nosotros" class="w-100">
     </div>
 
 </div>
@@ -100,8 +80,8 @@ get_header();?>
 
 <!-- Propiedades destacadas -->
 <?php if($featured_listings): ?>
-    <div class="position-relative pt-5 mt-5 mb-6">
-        <h2 class="text-center gold-text fs-1 fw-light mb-5">Propiedades Destacadas</h2>
+    <div class="position-relative pt-5 mb-6">
+        <h2 class="text-center gold-text fs-1 fw-light mb-5"><?php pll_e('Propiedades Destacadas');?></h2>
         <img width="250px" src="<?php echo get_template_directory_uri();?>/assets/icons/half-circle-gold.webp" alt="" class="position-absolute top-0 start-0 z-1">
 
 
@@ -156,7 +136,7 @@ get_header();?>
 <!-- Regiones destacadas -->
 <?php if($featured_regions): ?>
     <div class="position-relative mb-6">
-        <h2 class="text-center gold-text fs-1 fw-light mb-5">Regiones Populares</h2>
+        <h3 class="text-center gold-text fs-1 fw-light mb-5"><?php pll_e('Regiones Populares');?></h3>
         <img width="250px" src="<?php echo get_template_directory_uri();?>/assets/icons/half-circle-gold.webp" alt="" class="position-absolute top-50 end-0 z-1" style="transform: rotate(180deg);">
 
         <?php foreach($featured_regions as $region): ?>
@@ -174,13 +154,13 @@ get_header();?>
 
                     <div class="row">
                         <div class="col-12 col-lg-6 px-0 fs-4 mb-4 mb-lg-0">
-                            <div class="blue-text">Precios</div>
+                            <div class="blue-text"><?php pll_e('Precios');?></div>
                             <?= $region->prices ?>
                         </div>
 
                         <div class="col-12 col-lg-6 px-0 align-self-center">
                             <a href="<?= get_the_permalink( $region->ID ); ?>" class="btn btn-yellow w-100">
-                                Conocer Más
+                                <?php pll_e('Conocer Más');?>
                             </a>
                         </div>
                     </div>
@@ -197,7 +177,7 @@ get_header();?>
 <!-- Ultimas entradas -->
 <?php if ( $last_posts ): ?>
 
-    <h3 class="text-center gold-text fs-1 fw-light mb-5">Artículos Recientes</h3>
+    <h3 class="text-center gold-text fs-1 fw-light mb-5"><?php pll_e('Artículos Recientes');?></h3>
 
     <div class="col-12 col-lg-10 mx-auto mb-5">
         <div class="row">
@@ -225,7 +205,7 @@ get_header();?>
     </div>
 
     <div class="text-center mb-6">
-        <a href="<?= get_the_permalink(get_page_by_title( 'Blog' )); ?>" class="btn btn-yellow">Ver Todos</a>
+        <a href="<?= get_the_permalink(get_page_by_title( 'Blog' )); ?>" class="btn btn-yellow"><?php pll_e('Ver Todos');?></a>
     </div>
 
 <?php endif; ?>

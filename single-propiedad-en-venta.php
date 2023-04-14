@@ -61,19 +61,19 @@
                         <div class="row justify-content-center">
                             <div class="col-6 col-lg-2 text-center mb-4 mb-lg-0">
                                 <div class="fs-1 blue-text fw-bold"><?= rwmb_meta('bedrooms'); ?></div>
-                                <div class="fs-5 fw-light text-uppercase">Recámaras</div>
+                                <div class="fs-5 fw-light text-uppercase"><?php pll_e('Recámaras');?></div>
                             </div>
                             <div class="col-6 col-lg-2 text-center mb-4 mb-lg-0">
                                 <div class="fs-1 blue-text fw-bold"><?= rwmb_meta('bathrooms'); ?></div>
-                                <div class="fs-5 fw-light text-uppercase">Baños</div>
+                                <div class="fs-5 fw-light text-uppercase"><?php pll_e('Baños');?></div>
                             </div>
                             <div class="col-6 col-lg-2 text-center">
                                 <div class="fs-1 blue-text fw-bold"><?= rwmb_meta('construction'); ?>m²</div>
-                                <div class="fs-5 fw-light text-uppercase">Conts. Total</div>
+                                <div class="fs-5 fw-light text-uppercase"><?php pll_e('Conts. Total');?></div>
                             </div>
                             <div class="col-6 col-lg-2 text-center">
                                 <div class="fs-1 blue-text fw-bold"><?= rwmb_meta('lot_area'); ?>m²</div>
-                                <div class="fs-5 fw-light text-uppercase">Lote</div>
+                                <div class="fs-5 fw-light text-uppercase"><?php pll_e('Lote');?></div>
                             </div>
 
                             <?php if( rwmb_meta('avaliable') == 'Disponible' ): ?>
@@ -91,12 +91,12 @@
 
                     <!-- Descripcion -->
                     <div class="col-12 col-lg-10 my-4">
-                        <h3 class="fs-2 fw-bold blue-text">Descripcion</h3>
+                        <h3 class="fs-2 fw-bold blue-text"><?php pll_e('Descripción');?></h3>
                         <div class="fs-5">
                             <?= get_the_content();?>
                         </div>
 
-                        <h3 class="fs-2 fw-bold blue-text mt-4">Amenidades</h3>
+                        <h3 class="fs-2 fw-bold blue-text mt-4"><?php pll_e('Amenidades');?></h3>
                         <div class="fs-5">
                             <?php $amenities = rwmb_meta('amenities');?>
                             <?php 
@@ -116,7 +116,7 @@
 
                     <!-- Ubicación -->
                     <div class="col-12 col-lg-10 my-4 position-relative z-2">
-                        <h3 class="fs-2 fw-bold blue-text mb-1">Ubicación</h3>
+                        <h3 class="fs-2 fw-bold blue-text mb-1"><?php pll_e('Ubicación');?></h3>
                         <h4 class="fw-light gold-text mb-4 fs-5"><?php get_list_terms(get_the_ID(), 'regiones'); ?></h4>
                         <div>
                             <?php
@@ -136,8 +136,8 @@
 
                     <!-- Formulario de contacto -->
                     <div class="col-12 col-lg-8 col-xl-5 mb-6 mt-5">
-                        <h4 class="fs-2 text-center fw-bold blue-text mb-1">Contacto</h4>
-                        <h5 class="text-center gold-text fs-4 fw-light mb-4">¡Contáctanos para obtener respuestas a tus preguntas!</h5>
+                        <h4 class="fs-2 text-center fw-bold blue-text mb-1"><?php pll_e('Contacto');?></h4>
+                        <h5 class="text-center gold-text fs-4 fw-light mb-4"><?php pll_e('¡Contáctanos para obtener respuestas a tus preguntas!');?></h5>
                         <?= do_shortcode( '[cf7form cf7key="formulario-de-contacto-1"]' ); ?>
                     </div>
 

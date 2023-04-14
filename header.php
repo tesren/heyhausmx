@@ -12,16 +12,16 @@
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&display=swap" rel="stylesheet">
 
     <?php if(is_front_page()): ?>
-            <title>Descubre tu hogar ideal con HeyHaus - Propiedades exclusivas en Puerto Vallarta y Bahía de Banderas</title>
-            <meta name="description" content="HeyHaus es una plataforma de venta de propiedades en Puerto Vallarta y Bahía de Banderas, México. Ofrecemos una amplia selección de propiedades exclusivas, que van desde apartamentos y casas de playa hasta terrenos y lotes residenciales. Nuestro equipo de expertos inmobiliarios altamente capacitados ofrece asesoramiento personalizado a compradores y vendedores interesados en el mercado inmobiliario de la zona. En HeyHaus, nos enfocamos en la calidad y la transparencia para brindar la mejor experiencia de compra y venta de propiedades. Encuentra tu hogar ideal hoy con HeyHaus.">
+            <title><?php pll_e('Descubre tu hogar ideal con HeyHaus MX - Propiedades exclusivas en Puerto Vallarta y Bahía de Banderas');?></title>
+            <meta name="description" content="<?php pll_e('HeyHaus MX es una plataforma de venta de propiedades en Puerto Vallarta y Bahía de Banderas, México. Ofrecemos una amplia selección de propiedades exclusivas, que van desde apartamentos y casas de playa hasta terrenos y lotes residenciales. Nuestro equipo de expertos inmobiliarios altamente capacitados ofrece asesoramiento personalizado a compradores y vendedores interesados en el mercado inmobiliario de la zona. En HeyHaus, nos enfocamos en la calidad y la transparencia para brindar la mejor experiencia de compra y venta de propiedades. Encuentra tu hogar ideal hoy con HeyHaus.');?>">
         <?php elseif(is_post_type_archive()):?>
-            <title>HeyHaus - <?php echo post_type_archive_title(); ?></title>
-            <meta name="description" content="HeyHaus es una plataforma de venta de propiedades en Puerto Vallarta y Bahía de Banderas, México. Ofrecemos una amplia selección de propiedades exclusivas, que van desde apartamentos y casas de playa hasta terrenos y lotes residenciales. Nuestro equipo de expertos inmobiliarios altamente capacitados ofrece asesoramiento personalizado a compradores y vendedores interesados en el mercado inmobiliario de la zona. En HeyHaus, nos enfocamos en la calidad y la transparencia para brindar la mejor experiencia de compra y venta de propiedades. Encuentra tu hogar ideal hoy con HeyHaus.">
+            <title>HeyHaus MX - <?php echo post_type_archive_title(); ?></title>
+            <meta name="description" content="<?php pll_e('HeyHaus MX es una plataforma de venta de propiedades en Puerto Vallarta y Bahía de Banderas, México. Ofrecemos una amplia selección de propiedades exclusivas, que van desde apartamentos y casas de playa hasta terrenos y lotes residenciales. Nuestro equipo de expertos inmobiliarios altamente capacitados ofrece asesoramiento personalizado a compradores y vendedores interesados en el mercado inmobiliario de la zona. En HeyHaus, nos enfocamos en la calidad y la transparencia para brindar la mejor experiencia de compra y venta de propiedades. Encuentra tu hogar ideal hoy con HeyHaus.');?>">
         <?php elseif( is_page() ):?>
-            <title>HeyHaus - <?php echo single_post_title(); ?></title>
+            <title>HeyHaus MX - <?php echo single_post_title(); ?></title>
             <meta name="description" content="<?php echo get_the_excerpt(); ?>">
         <?php else: ?>
-            <title>HeyHaus - <?php echo the_title(); ?></title>
+            <title>HeyHaus MX - <?php echo the_title(); ?></title>
             <meta name="description" content="<?php echo get_the_excerpt(); ?>">
 	<?php endif; ?>
 

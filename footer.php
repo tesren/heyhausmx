@@ -8,8 +8,8 @@
         </div>
 
         <div class="col-12 col-lg-4 mb-5 mb-lg-0">
-            <h6 class="fs-3">Contacto</h6>
-            <a href="mailto:" class="link-light text-decoration-none fs-5 d-block mb-3">
+            <h6 class="fs-3"><?php pll_e('Contacto')?></h6>
+            <a href="mailto:info@heyhaus.mx" class="link-light text-decoration-none fs-5 d-block mb-3">
                 <img width="24px" src="<?php echo get_template_directory_uri()?>/assets/icons/mail-white.svg" alt="Email">
                 info@heyhaus.mx
             </a>
@@ -20,7 +20,7 @@
         </div>
 
         <div class="col-12 col-lg-2 text-center text-lg-start">
-            <h6 class="fs-3">Síguenos</h6>
+            <h6 class="fs-3"><?php pll_e('Síguenos')?></h6>
             <a href="#" target="_blank" rel="noopener noreferrer" class="link-light text-decoration-none me-3">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="36px" fill="#fff"><path d="M504 256C504 119 393 8 256 8S8 119 8 256c0 123.78 90.69 226.38 209.25 245V327.69h-63V256h63v-54.64c0-62.15 37-96.48 93.67-96.48 27.14 0 55.52 4.84 55.52 4.84v61h-31.28c-30.8 0-40.41 19.12-40.41 38.73V256h68.78l-11 71.69h-57.78V501C413.31 482.38 504 379.78 504 256z"/></svg>            
             </a>
@@ -37,7 +37,7 @@
             <img width="20px" src="<?php echo get_template_directory_uri()?>/assets/icons/copyright-white.svg" alt="Copyright">
             2023 - <?php echo date('Y');?>
         </div>
-        <a href="#" class="d-block link-light ms-3">Políticas de Privacidad</a>
+        <a href="#" class="d-block link-light ms-3"><?php pll_e('Políticas de Privacidad')?></a>
     </div>
 
 </footer>

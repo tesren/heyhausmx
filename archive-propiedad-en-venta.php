@@ -4,7 +4,7 @@
 
         <?php if ( have_posts() ): ?>
 
-            <h1 class="fs-2 blue-text fw-bold text-center mt-6 mb-1">Todas las propiedades en venta</h1>
+            <h1 class="fs-2 blue-text fw-bold text-center mt-6 mb-1"><?php pll_e('Todas las propiedades en venta');?></h1>
             <hr class="col-11 col-lg-4 mx-auto mt-0 mb-6">
 
             <div class="row justify-content-center mb-6">
@@ -54,7 +54,7 @@
                                                 $<?= number_format(rwmb_meta('price')) ?> <span class="fs-5"><?= rwmb_meta('currency') ?></span>
                                             </div>
 
-                                            <p class="card-text"><small class="text-body-secondary">Última actualización: <?= get_the_date('d/m/Y');?></small></p>
+                                            <p class="card-text"><small class="text-body-secondary"><?php pll_e('Última actualización');?>: <?= get_the_date('d/m/Y');?></small></p>
                                         </div>
                                     </div>
 

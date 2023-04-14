@@ -24,17 +24,17 @@
                     <img width="250px" src="<?php echo get_template_directory_uri();?>/assets/icons/half-circle-gold.webp" alt="" class="position-absolute start-0 z-1 px-0" style="width:250px; top:10%;">
 
                     <div class="col-11 col-lg-10 col-xl-9">
-                        <h2 class="fs-1 blue-text mb-4">La región de <?= get_the_title();?></h2>
+                        <h2 class="fs-1 blue-text mb-4"><?php pll_e('La región de');?> <?= get_the_title();?></h2>
                         <?php the_content(); ?>
 
                         <div class="mt-5 fs-4">
-                            <div class="blue-text">Precios</div>
+                            <div class="blue-text"><?php pll_e('Precios');?></div>
                             <?= rwmb_meta('prices'); ?>
                         </div>
                     </div>
                 </div>
 
-                <h4 class="fs-2 text-center blue-text mb-1">Galería de <?php the_title();?></h4>
+                <h4 class="fs-2 text-center blue-text mb-1"><?php pll_e('Galería de');?> <?php the_title();?></h4>
                 <hr class="mx-auto col-10 col-lg-3 mt-0 mb-5">
 
                 <section class="splide position-relative z-2 mb-6" aria-label="Propiedades destacadas" id="region-gallery">
@@ -58,7 +58,7 @@
                 <?php $listings = get_field('listings'); ?>
 
                 <?php if($listings): ?>
-                    <h4 class="fs-2 text-center blue-text mb-1">Propiedades en <?php the_title();?></h4>
+                    <h4 class="fs-2 text-center blue-text mb-1"><?php pll_e('Propiedades en');?> <?php the_title();?></h4>
                     <hr class="mx-auto col-10 col-lg-3 mt-0 mb-5">
 
                     <section class="splide position-relative z-2 mb-6" aria-label="Propiedades destacadas" id="featured-listings">

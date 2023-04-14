@@ -4,7 +4,7 @@
 
         <?php if ( have_posts() ): ?>
 
-            <h1 class="fs-2 blue-text fw-bold text-center mt-5 mb-1">Regiones para comprar la propiedad de tus sueños</h1>
+            <h1 class="fs-2 blue-text fw-bold text-center mt-5 mb-1"><?php pll_e('Regiones para comprar la propiedad de tus sueños');?></h1>
             <hr class="col-11 col-lg-5 mx-auto mt-0 mb-5">
                 
             <?php while( have_posts() ): the_post();?>
@@ -22,13 +22,13 @@
 
                         <div class="row">
                             <div class="col-12 col-lg-6 px-0 fs-4">
-                                <div class="blue-text">Precios</div>
+                                <div class="blue-text"><?php pll_e('Precios');?></div>
                                 <?= rwmb_meta('prices'); ?>
                             </div>
 
                             <div class="col-12 col-lg-6 px-0 align-self-center">
                                 <a href="<?= get_the_permalink(  ); ?>" class="btn btn-yellow">
-                                    Conocer Más
+                                    <?php pll_e('Conocer Más');?>
                                 </a>
                             </div>
                         </div>

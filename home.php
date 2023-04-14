@@ -17,7 +17,7 @@
 
         <?php if ( have_posts() ): ?>
 
-            <h2 class="fs-2 blue-text fw-bold text-center mt-5 mb-1">Artículos recientes</h2>
+            <h2 class="fs-2 blue-text fw-bold text-center mt-5 mb-1"><?php pll_e('Artículos Recientes');?></h2>
             <hr class="col-11 col-lg-3 mx-auto mt-0 mb-5">
 
             <div class="col-12 col-lg-10 mx-auto mb-6">
@@ -47,8 +47,8 @@
 
             <?php the_posts_pagination( array(
                 'mid_size'  => 2,
-                'prev_text' => __( 'Back', 'textdomain' ),
-                'next_text' => __( 'Onward', 'textdomain' ),
+                'prev_text' => __( 'Anterior', 'textdomain' ),
+                'next_text' => __( 'Siguiente', 'textdomain' ),
             ) ); ?>
             
         <?php endif; ?>
