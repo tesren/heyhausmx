@@ -3,6 +3,7 @@ let featuredListings = document.getElementById('featured-listings');
 if(featuredListings){
   featuredListings= new Splide( '#featured-listings', {
     perPage: 3,
+    perMove: 1,
     loop: true,
     padding: '15px',
     pagination: false,
@@ -24,6 +25,7 @@ let regionGallery = document.getElementById('region-gallery');
 if(regionGallery){
   regionGallery= new Splide( '#region-gallery', {
     perPage: 2,
+    perMove: 1,
     loop: true,
     pagination: true,
     breakpoints: {

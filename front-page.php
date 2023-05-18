@@ -23,6 +23,11 @@
         ),
     ));
 
+    $featured_devs = get_posts(array(
+        'post_type' => 'desarrollos',
+        'numberposts' => 5,
+    ));
+
     $last_posts = get_posts(array(
         'post_type' => 'post',
         'numberposts' => 3,
@@ -133,6 +138,70 @@
     </div>
 <?php endif; ?>
 
+<!-- Desarrollos destacados -->
+<?php if($featured_devs): ?>
+    <h3 class="text-center gold-text fs-1 fw-light mb-5"><?php pll_e('Desarrollos Inmobiliarios');?></h3>
+    <div class="position-relative py-5 mb-6 bg-blue">
+        <img width="250px" src="<?php echo get_template_directory_uri();?>/assets/icons/half-circle-gold.webp" alt="" class="position-absolute top-0 start-0 z-1">
+
+        <div id="carouselExample" class="carousel slide py-5">
+            <div class="carousel-inner">
+                <?php $i=0; foreach($featured_devs as $dev):?>
+                    <?php $images = rwmb_meta('gallery', ['size'=>'medium-large', 'limit'=>5], $dev->ID); ?>
+
+                    <div class="carousel-item <?php if($i==0){echo 'active';}?>">
+                        <div class="row position-relative z-2">
+
+                            <div class="col-12 col-lg-7">
+                                <div class="row">
+                                    <div class="col-12 col-lg-3 mb-3 mb-lg-0">
+                                        <img src="<?php echo $images[0]['url']?>" alt="<?php echo get_the_title($dev->ID);?>" class="w-100 mb-3" style="height:200px; object-fit:cover;">
+                                        <img src="<?php echo $images[1]['url']?>" alt="<?php echo get_the_title($dev->ID);?>" class="w-100" style="height:200px; object-fit:cover;">
+                                    </div>
+                                    <div class="col-6 col-lg-4 mb-3 mb-lg-0 d-none d-lg-block">
+                                        <img src="<?php echo $images[2]['url']?>" alt="<?php echo get_the_title($dev->ID);?>" class="w-100" style="height:415px; object-fit:cover;">
+                                    </div>
+                                    <div class="col-6 col-lg-5 d-none d-lg-block">
+                                        <img src="<?php echo $images[3]['url']?>" alt="<?php echo get_the_title($dev->ID);?>" class="w-100 mb-3" style="height:200px; object-fit:cover;">
+                                        <img src="<?php echo $images[4]['url']?>" alt="<?php echo get_the_title($dev->ID);?>" class="w-100" style="height:200px; object-fit:cover;">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-12 col-lg-5 px-3 align-self-center">
+                                <h3 class="fs-1 fw-normal"><?php echo get_the_title($dev->ID);?></h3>
+                                <div class="fs-4 fw-light mb-2"><img width="16px" src="<?php echo get_template_directory_uri()?>/assets/icons/location-dot.svg" alt=""> <?php echo get_list_terms($dev->ID, 'regiones');?></div>
+                                <p class="pe-0 pe-lg-3"><?php echo get_the_excerpt( $dev->ID );?></p>
+                                <div class="fs-5 fw-light mb-4">
+                                    <?php pll_e('Precios desde');?>: 
+                                    <span class="fw-bolder">
+                                        $<?php echo number_format($dev->price);?>
+                                        <span class="fs-6"><?php echo $dev->currency;?></span>
+                                    </span>
+                                </div>
+                                <a href="<?php echo get_the_permalink( $dev->ID );?>" class="btn rounded-0 btn-yellow fs-5 fw-light">
+                                    <?php pll_e('Conocer Más');?> <img width="18px" src="<?php echo get_template_directory_uri()?>/assets/icons/arrow-right.svg" alt="">
+                                </a>
+                            </div>
+
+                        </div>
+                    </div>
+                <?php $i++; endforeach;?>
+            </div>
+
+            <button class="carousel-control-prev z-3" type="button" data-bs-target="#carouselExample" data-bs-slide="prev" style="width:5%;">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next z-3" type="button" data-bs-target="#carouselExample" data-bs-slide="next" style="width:5%;">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+
+    </div>
+<?php endif; ?>
+
 <!-- Regiones destacadas -->
 <?php if($featured_regions): ?>
     <div class="position-relative mb-6">
@@ -202,10 +271,6 @@
 
             <?php endforeach; ?>
         </div>
-    </div>
-
-    <div class="text-center mb-6">
-        <a href="<?= get_the_permalink(get_page_by_title( 'Blog' )); ?>" class="btn btn-yellow"><?php pll_e('Ver Todos');?></a>
     </div>
 
 <?php endif; ?>

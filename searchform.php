@@ -12,7 +12,7 @@
     ) ); 
 ?>
 
-<div class="bg-white px-3 py-4 rounded-4">
+<div class="bg-white px-3 py-4 rounded-4 shadow-4">
     <form role="search" method="get" id="searchform" action="<?php echo home_url( '/' ); ?>" class="row">
         <input type="hidden" placeholder="Search" value="<?php the_search_query() ?>" name="s" title="Search"/>
 

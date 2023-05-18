@@ -80,6 +80,7 @@ add_action( 'wp_enqueue_scripts', 'heyhaus_theme_styles' );
 */
 
 require get_template_directory().'/inc/listing-cpt.php';
+require get_template_directory().'/inc/developments-cpt.php';
 require get_template_directory().'/inc/region-cpt.php';
 require get_template_directory().'/inc/messages-cpt.php';
 
@@ -352,6 +353,48 @@ function heyhaus_set_strings_transtaltion(){
 			'string'   =>'Propiedades en',
 			'group'    =>'Listing',
 			'multiline'=>false,
+		),
+		array(
+			'name'   => 'developments',
+			'string' => 'Desarrollos Inmobiliarios',
+			'group'  => 'Desarrollos',
+			'multiline'=> false,
+		),
+		array(
+			'name'   => 'prices from',
+			'string' => 'Precios desde',
+			'group'  => 'Desarrollos',
+			'multiline'=> false,
+		),
+		array(
+			'name'   => 'in_single_dev',
+			'string' => 'en',
+			'group'  => 'Desarrollos',
+			'multiline'=> false,
+		),
+		array(
+			'name'   => 'about',
+			'string' => 'Sobre',
+			'group'  => 'Desarrollos',
+			'multiline'=> false,
+		),
+		array(
+			'name'   => 'gallery',
+			'string' => 'Galería',
+			'group'  => 'Desarrollos',
+			'multiline'=> false,
+		),
+		array(
+			'name'   => 'location',
+			'string' => 'Ubicación',
+			'group'  => 'Desarrollos',
+			'multiline'=> false,
+		),
+		array(
+			'name'   => 'available_models',
+			'string' => 'Modelos Disponibles',
+			'group'  => 'Desarrollos',
+			'multiline'=> false,
 		),
 	);
 

@@ -79,7 +79,7 @@ function heyhaus_listings_custom_taxonomies(){
         'rewrite' => array('slug' => 'tipo-propiedad') //Este parametro saldra en la URL
     );
 
-    register_taxonomy('property_type', array('propiedad-en-venta'), $args );
+    register_taxonomy('property_type', array('propiedad-en-venta', 'desarrollos'), $args );
 
     //add new taxonomi NOT heirarchical
 

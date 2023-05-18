@@ -7,7 +7,7 @@
             <?php while( have_posts() ): the_post();?>
 
                 <div class="position-relative">
-                    <img src="<?php echo get_the_post_thumbnail_url( get_the_ID(), 'large' );?>" alt="<?php the_title();?>" class="w-100" style="height:50vh; object-fit:cover;">
+                    <img src="<?php echo get_the_post_thumbnail_url( get_the_ID(), 'full' );?>" alt="<?php the_title();?>" class="w-100" style="height:50vh; object-fit:cover;">
 
                     <div class="fondo-oscuro"></div>
 
@@ -25,7 +25,11 @@
 
                     <div class="col-11 col-lg-10 col-xl-9">
                         <h2 class="fs-1 blue-text mb-4"><?php pll_e('La región de');?> <?= get_the_title();?></h2>
-                        <?php the_content(); ?>
+
+                        <div class="fs-5">
+                            <?php the_content(); ?>
+                        </div>
+                        
 
                         <div class="mt-5 fs-4">
                             <div class="blue-text"><?php pll_e('Precios');?></div>
