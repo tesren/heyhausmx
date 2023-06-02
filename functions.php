@@ -396,6 +396,12 @@ function heyhaus_set_strings_transtaltion(){
 			'group'  => 'Desarrollos',
 			'multiline'=> false,
 		),
+		array(
+			'name' => 'devs_in_region',
+			'string' => 'Desarrollos en la Región',
+			'group'  => 'Desarrollos',
+			'multiline'=> false,
+		),
 	);
 
 foreach ($strings as $string ) {

@@ -77,7 +77,7 @@
     </div>
 
     <div class="col-12 col-lg-4">
-        <img src="<?php echo get_template_directory_uri();?>/assets/images/about-pic.webp" alt="Heyhaus sobre nosotros" class="w-100">
+        <img src="<?php echo get_template_directory_uri();?>/assets/images/about-pic.webp" alt="Heyhaus sobre nosotros" class="w-100" loading="lazy">
     </div>
 
 </div>
@@ -87,7 +87,7 @@
 <?php if($featured_listings): ?>
     <div class="position-relative pt-5 mb-6">
         <h2 class="text-center gold-text fs-1 fw-light mb-5"><?php pll_e('Propiedades Destacadas');?></h2>
-        <img width="250px" src="<?php echo get_template_directory_uri();?>/assets/icons/half-circle-gold.webp" alt="" class="position-absolute top-0 start-0 z-1">
+        <img width="250px" src="<?php echo get_template_directory_uri();?>/assets/icons/half-circle-gold.webp" alt="" class="position-absolute top-0 start-0 z-1" loading="lazy">
 
 
         <section class="splide position-relative z-2" aria-label="Propiedades destacadas" id="featured-listings">
@@ -98,9 +98,9 @@
                         <li class="splide__slide">
 
                             <a href="<?php echo get_the_permalink($listing->ID); ?>" class="text-decoration-none">
-                                <?php $images = rwmb_meta('listing_gallery', ['size'=>'medium-large', 'limit'=>1], $listing->ID); ?>
+                                <?php $images = rwmb_meta('listing_gallery', ['size'=>'medium_large', 'limit'=>1], $listing->ID); ?>
                                 <div class="position-relative">
-                                    <img src="<?php echo $images[0]['url']; ?>" alt="<?php echo get_the_title( $listing->ID ); ?>" class="w-100 rounded-4">
+                                    <img src="<?php echo $images[0]['url']; ?>" alt="<?php echo get_the_title( $listing->ID ); ?>" class="w-100 rounded-4" loading="lazy">
                                     <div class="fondo-oscuro rounded-4"></div>
                                     <div class="position-absolute start-0 bottom-0 w-100 text-white z-3 px-4 py-3">
                                         <h2 class="fs-1 mb-0 lh-1"><?php echo get_the_title( $listing->ID ); ?></h2>
@@ -115,9 +115,9 @@
 
                                 <div class="d-flex justify-content-between px-4 py-2">
                                     <div class="fs-5 fw-bold gold-text">
-                                        <img width="24px" src="<?php echo get_template_directory_uri();?>/assets/icons/bed-blue.svg" alt="">
+                                        <img width="24px" src="<?php echo get_template_directory_uri();?>/assets/icons/bed-blue.svg" alt="" loading="lazy">
                                         <?php echo $listing->bedrooms; ?>
-                                        <img width="24px" src="<?php echo get_template_directory_uri();?>/assets/icons/bathtub-blue.svg" alt="" class="ms-2">
+                                        <img width="24px" src="<?php echo get_template_directory_uri();?>/assets/icons/bathtub-blue.svg" alt="" class="ms-2" loading="lazy">
                                         <?php echo $listing->bathrooms; ?>
                                     </div>
 
@@ -142,12 +142,12 @@
 <?php if($featured_devs): ?>
     <h3 class="text-center gold-text fs-1 fw-light mb-5"><?php pll_e('Desarrollos Inmobiliarios');?></h3>
     <div class="position-relative py-5 mb-6 bg-blue">
-        <img width="250px" src="<?php echo get_template_directory_uri();?>/assets/icons/half-circle-gold.webp" alt="" class="position-absolute top-0 start-0 z-1">
+        <img width="250px" src="<?php echo get_template_directory_uri();?>/assets/icons/half-circle-gold.webp" alt="" class="position-absolute top-0 start-0 z-1" loading="lazy">
 
         <div id="carouselExample" class="carousel slide py-5">
             <div class="carousel-inner">
                 <?php $i=0; foreach($featured_devs as $dev):?>
-                    <?php $images = rwmb_meta('gallery', ['size'=>'medium-large', 'limit'=>5], $dev->ID); ?>
+                    <?php $images = rwmb_meta('gallery', ['size'=>'medium_large', 'limit'=>5], $dev->ID); ?>
 
                     <div class="carousel-item <?php if($i==0){echo 'active';}?>">
                         <div class="row position-relative z-2">
@@ -155,15 +155,15 @@
                             <div class="col-12 col-lg-7">
                                 <div class="row">
                                     <div class="col-12 col-lg-3 mb-3 mb-lg-0">
-                                        <img src="<?php echo $images[0]['url']?>" alt="<?php echo get_the_title($dev->ID);?>" class="w-100 mb-3" style="height:200px; object-fit:cover;">
-                                        <img src="<?php echo $images[1]['url']?>" alt="<?php echo get_the_title($dev->ID);?>" class="w-100" style="height:200px; object-fit:cover;">
+                                        <img src="<?php echo $images[0]['url']?>" alt="<?php echo get_the_title($dev->ID);?>" class="w-100 mb-3" style="height:200px; object-fit:cover;" loading="lazy">
+                                        <img src="<?php echo $images[1]['url']?>" alt="<?php echo get_the_title($dev->ID);?>" class="w-100" style="height:200px; object-fit:cover;" loading="lazy">
                                     </div>
                                     <div class="col-6 col-lg-4 mb-3 mb-lg-0 d-none d-lg-block">
-                                        <img src="<?php echo $images[2]['url']?>" alt="<?php echo get_the_title($dev->ID);?>" class="w-100" style="height:415px; object-fit:cover;">
+                                        <img src="<?php echo $images[2]['url']?>" alt="<?php echo get_the_title($dev->ID);?>" class="w-100" style="height:415px; object-fit:cover;" loading="lazy">
                                     </div>
                                     <div class="col-6 col-lg-5 d-none d-lg-block">
-                                        <img src="<?php echo $images[3]['url']?>" alt="<?php echo get_the_title($dev->ID);?>" class="w-100 mb-3" style="height:200px; object-fit:cover;">
-                                        <img src="<?php echo $images[4]['url']?>" alt="<?php echo get_the_title($dev->ID);?>" class="w-100" style="height:200px; object-fit:cover;">
+                                        <img src="<?php echo $images[3]['url']?>" alt="<?php echo get_the_title($dev->ID);?>" class="w-100 mb-3" style="height:200px; object-fit:cover;" loading="lazy">
+                                        <img src="<?php echo $images[4]['url']?>" alt="<?php echo get_the_title($dev->ID);?>" class="w-100" style="height:200px; object-fit:cover;" loading="lazy">
                                     </div>
                                 </div>
                             </div>
@@ -206,7 +206,7 @@
 <?php if($featured_regions): ?>
     <div class="position-relative mb-6">
         <h3 class="text-center gold-text fs-1 fw-light mb-5"><?php pll_e('Regiones Populares');?></h3>
-        <img width="250px" src="<?php echo get_template_directory_uri();?>/assets/icons/half-circle-gold.webp" alt="" class="position-absolute top-50 end-0 z-1" style="transform: rotate(180deg);">
+        <img width="250px" src="<?php echo get_template_directory_uri();?>/assets/icons/half-circle-gold.webp" alt="" class="position-absolute top-50 end-0 z-1" style="transform: rotate(180deg);" loading="lazy">
 
         <?php foreach($featured_regions as $region): ?>
 
@@ -256,7 +256,7 @@
 
                     <article class="card rounded-0 w-100 shadow-4 blog-card">
                         <a href="<?= get_the_permalink($blog->ID); ?>" class="text-decoration-none">
-                            <img src="<?= get_the_post_thumbnail_url( $blog->ID, 'medium_large')?>" alt="<?= get_the_title($blog->ID); ?>" class="w-100" style="height:270px; object-fit:cover;">
+                            <img src="<?= get_the_post_thumbnail_url( $blog->ID, 'medium_large')?>" alt="<?= get_the_title($blog->ID); ?>" class="w-100" style="height:270px; object-fit:cover;" loading="lazy">
                             
                             <div class="bg-light card-body">
                                 <h3 class="fw-bold blue-text"><?= get_the_title($blog->ID); ?></h3>

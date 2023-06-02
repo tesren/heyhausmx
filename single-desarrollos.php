@@ -44,7 +44,7 @@
 
                         <div class="col-12 col-lg-7 mb-3 mb-lg-0">
                             <h2 class="mb-3 blue-text"><?php pll_e('Sobre');?> <?php echo the_title();?></h2>
-                            <?php echo get_the_content( );?>
+                            <p><?php echo get_the_content( );?></p>
                         </div>
 
                         <div class="col-12 col-lg-4 mb-0 align-self-center">

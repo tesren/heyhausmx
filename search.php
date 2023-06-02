@@ -46,6 +46,24 @@
 
     get_header();
 
+    $developments = get_posts(array(
+        'post_type' => 'desarrollos',
+        'numberposts' => -1,
+        'tax_query' => array(
+            array(
+                'taxonomy' => 'property_type',
+                'field'    => 'slug',
+                'terms'    => $pType,
+            ),
+            array(
+                'taxonomy' => 'regiones',
+                'field'    => 'slug',
+                'include_children' => true,
+                'terms'    => $regiones_s,
+            ),
+        ),
+    ));
+
     
     $args = array(
         'post_type' => 'propiedad-en-venta',
@@ -229,6 +247,54 @@
         </div>
        
 
+    <?php endif; ?>
+
+    <?php if($developments): ?>
+        <h1 class="fs-2 blue-text fw-bold text-center mt-5 mb-0"><?php pll_e('Desarrollos Inmobiliarios');?></h1>
+        <hr class="col-11 col-lg-3 mx-auto mt-0 mb-5">
+
+        <div class="row justify-content-center">
+            <?php foreach($developments as $dev): ?>
+                <div class="col-11 col-lg-10 col-xl-9 mb-4 mb-lg-5 shadow-4 px-0 rounded-2 blog-card position-relative z-2">
+
+                    <a href="<?= get_the_permalink($dev->ID); ?>" class="text-decoration-none">
+                        <div class="card w-100 text-dark fw-normal position-relative">
+
+                            <div class="badge bg-blue position-absolute top-0 start-0 ms-3 mt-3 z-3">
+                                <?php get_property_type($dev->ID , 'property_type') ?>
+                            </div>
+
+                            <div class="row g-0">
+
+                                <?php $images = rwmb_meta('gallery', ['size'=>'medium-large', 'limit'=>1], $dev->ID) ;?>
+                                <div class="col-12 col-lg-7">
+                                    <img src="<?= $images[0]['url'] ?>" class="w-100 rounded-start" alt="<?= get_the_title($dev->ID);?>" style="max-height:450px; object-fit:cover;">
+                                </div>
+
+                                <div class="col-12 col-lg-5">
+                                    <div class="card-body">
+                                        <h2 class="fw-bold blue-text mb-1 fs-1"><?= get_the_title($dev->ID);?></h2>
+                                        <h3 class="fw-light gold-text fs-4 mb-3"><?php get_list_terms($dev->ID, 'regiones'); ?></h3>
+
+                                        <p class="card-text fs-5"><?= get_the_excerpt($dev->ID);?></p>
+
+                                        <div class="fs-4 fw-light blue-text">
+                                            <?php pll_e('Precios desde')?>: 
+                                            <span class="fw-bolder">
+                                                $<?= number_format($dev->price) ?> <span class="fs-5"><?= $dev->currency ?></span>
+                                            </span> 
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </a>
+                    
+                </div>
+            <?php endforeach; ?>
+        </div>
     <?php endif; ?>
 
     <?php wp_reset_postdata(); ?>

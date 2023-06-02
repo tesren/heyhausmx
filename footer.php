@@ -13,9 +13,9 @@
                 <img width="24px" src="<?php echo get_template_directory_uri()?>/assets/icons/mail-white.svg" alt="Email">
                 info@heyhaus.mx
             </a>
-            <a href="tel:" class="link-light text-decoration-none fs-5 d-block">
+            <a href="tel:+523221804703" class="link-light text-decoration-none fs-5 d-block">
                 <img width="24px" src="<?php echo get_template_directory_uri()?>/assets/icons/phone-white.svg" alt="Teléfono">
-                +52 322 555 5555
+                +52 322 180 4703
             </a>
         </div>
 
